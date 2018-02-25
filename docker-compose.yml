@@ -1,0 +1,17 @@
+webui:
+    image: gajjelli/kubernetesjavawithmongowebui
+    container_name: webui
+    ports:
+        - 8080
+    hostname: webui
+    links:
+        - mongodb:mongo
+
+mongodb:
+    image: mongo
+    container_name: mongo
+    ports:
+        - 27017
+    hostname: mongo
+    volumes:
+        - $HOME/mongo/data/db:/data/db
